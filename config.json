@@ -1,0 +1,29 @@
+{
+  "mysql":
+  {
+    "connectinfo": "mysql://root:Admin_yyfwq_001@sh-cynosdbmysql-grp-4az6xxue.sql.tencentcdb.com:27977/ClipNetDBTest"
+
+  },
+  "redis":
+  {
+    "host": "101.34.40.125",
+    "post": 6379,
+    "db": 0
+
+  },
+  "tableName":{
+    "CostDetailsTableName":"CostDetails",
+    "CostModifyLogTableName":"CostModifyLog"
+  },
+  "SECRET_KEY": "b46dcced292e9f3fe322659af2f10fd9cba6e17f6e79b686c3e08a9e538f8a25",
+  "ALGORITHM":"HS256",
+  "ACCESS_TOKEN_EXPIRE_DAYS": 30,
+  "WEB_API_URL": "",
+  "BaiDuImg":{
+     "APP_ID": "117474932",
+     "API_KEY": "WrOtIIKKm2qx2KkodEhTjiQi",
+     "SECRET_KEY": "pb9Chi9UVL6PP3lLwPTUJZpxwzC2RpiV"
+  },
+  "filePath": {
+    "img": "./uploads/"}
+}
