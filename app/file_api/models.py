@@ -1,14 +1,15 @@
-from src.utils.database.SqlHelp import Base
+
 
 from sqlalchemy import Boolean, Column, Integer, String, DateTime, Numeric, func
 
+from pydantic import BaseModel
 
 # 文件项目表
-class FileProjectInfo(Base):
+class FileProjectInfo(BaseModel):
     __tablename__ = "FileProjectInfo"
 
-    id: Column[int] = Column(Integer, primary_key=True, autoincrement=True,comment="主键")
-    Creation_Time: Column[datetime.datetime] = Column(DateTime, default=func.now(), nullable=False, comment="创建时间")
+    id: Column[str] = Column(String(200), primary_key=True, comment="主键")
+    Creation_Time: Column[DateTime] = Column(DateTime, default=func.now(), nullable=False, comment="创建时间")
     # 数据类型
     DataType: Column[int] = Column(Integer, default=1,nullable=False,comment="数据类型（1-文件，2-项目)")
     # 版本号
@@ -45,16 +46,7 @@ class FileProjectInfo(Base):
 
 
 
-# 文件标签关联表
-class FileProjectTagInfo(Base):
-    __tablename__ = "FileProjectTagInfo"
 
-    id  : Column[int] = Column(Integer, primary_key=True, autoincrement=True,comment="主键")
-    Creation_Time: Column[datetime.datetime] = Column(DateTime, default=func.now(), nullable=False, comment="创建时间")
-    # 文件节点Id
-    FileNodeId: Column[int] = Column(Integer, default=0,nullable=True,comment="文件节点Id")
-    # 标签Id
-    LabelId: Column[int] = Column(Integer, default=0,nullable=True,comment="标签Id")
 class TagInfo(Base):
     __tablename__ = "TagInfo"
 

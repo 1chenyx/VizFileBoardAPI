@@ -4,15 +4,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 from sqlalchemy.ext.declarative import declarative_base
-from utils.config_util import CONFIG
-from src.SystemSettings import Project_Path
+
+from API.GlobalParameters import global_settings
 
 
-SQLALCHEMY_DATABASE_URL =os.path.join(Project_Path,config_data["sqlListPath"])
-# SQLALCHEMY_DATABASE_URL="E:\PythonProject\FileVisualization\data\database\sqllitedb\sqllitedb.db"
 # print(SQLALCHEMY_DATABASE_URL)
 engine = create_engine(
-    "sqlite:///"+SQLALCHEMY_DATABASE_URL
+    global_settings.db_connect_str
 )
 SessionLocal = scoped_session(sessionmaker(autocommit=False,autoflush=False,bind=engine))
 
