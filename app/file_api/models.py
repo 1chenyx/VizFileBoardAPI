@@ -1,17 +1,18 @@
 
 
-from sqlalchemy import Boolean, Column, Integer, String, DateTime, Numeric, func
+from sqlalchemy import Boolean, Column, Integer, String, DateTime, func
 
 from pydantic import BaseModel
+from datetime import datetime
 
 # 文件项目表
 class FileInfo(BaseModel):
     __tablename__ = "FileInfo"
 
     id: Column[str] = Column(String(50), primary_key=True, comment="主键")
-    Creation_Time: Column[DateTime] = Column(DateTime, default=func.now(), nullable=False, comment="创建时间")
+    Creation_Time: Column[datetime] = Column(DateTime, default=func.now(), nullable=False, comment="创建时间")
     # 修改时间
-    Modify_Time: Column[DateTime] = Column(DateTime, default=func.now(), nullable=False, comment="修改时间")
+    Modify_Time: Column[datetime] = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False, comment="修改时间")
     # 版本号
     Version: Column[int] = Column(Integer, default=0,nullable=False,comment="版本号")
     # 文件类型
@@ -44,7 +45,7 @@ class FileInfo(BaseModel):
 
 
 
-class TagInfo(Base):
+class TagInfo(BaseModel):
     __tablename__ = "TagInfo"
 
     id = Column(Integer, primary_key=True, autoincrement=True,comment="主键")

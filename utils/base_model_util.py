@@ -7,10 +7,9 @@ from datetime import datetime
 class BaseReturnModel(BaseModel):
     code: int = Body( default=200,description="状态码")
     message: str = Body(default="成功", description="消息")
-    data: dict = None
+    data: Union[list, dict, str, int, float, bool, None] = Body(default=None, description="数据")
 
-class BoolReturnModel(BaseReturnModel):
-    data: bool
+
 
 class PageBaseReturnModel(BaseModel):
     page : int = Body( description="页码")
