@@ -5,8 +5,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 from sqlalchemy.ext.declarative import declarative_base
 
-from API.GlobalParameters import global_settings
-
+from GlobalParameters import global_settings
 
 # print(SQLALCHEMY_DATABASE_URL)
 engine = create_engine(

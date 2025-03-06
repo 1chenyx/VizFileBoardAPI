@@ -4,6 +4,8 @@
     "mysqlConnect": "",
     "sqlliteConnect": ""
   },
-  "mode": 0
+  "mode": 0,
+  "filepath": "data/files",
+  "Version": 1
 
 }

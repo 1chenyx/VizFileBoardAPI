@@ -23,4 +23,3 @@ class PageBaseResponseModel(BaseModel):
     per_page : int = Body( description="页大小")
     sTime:Union[datetime, None]  = Body(default=None,description="开始时间")
     eTime: Union[datetime, None] = Body(default=None,description="结束时间")
-    Team_Id  : Union[int, None] = Body( default=None,description="团队Id")
